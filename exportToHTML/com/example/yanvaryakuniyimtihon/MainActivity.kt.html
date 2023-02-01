@@ -1,0 +1,258 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.yanvaryakuniyimtihon</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.animation.Animation</span>
+<span class="s1">import android.view.animation.AnimationUtils</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import com.example.yanvaryakuniyimtihon.R</span>
+<span class="s1">import kotlinx.android.synthetic.main.activity_main.*</span>
+<span class="s1">import kotlin.random.Random</span>
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity() {</span>
+
+
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">val </span><span class="s1">y = arrayOf(</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.apha)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.myalpha2)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.alpha_rotate)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.alpha_translate)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.animation1)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.anims)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.anims2)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.anims3)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.scope_anims_alpha)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.mix1)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.rotate)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.scale2)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.scale_translate)</span><span class="s0">,</span>
+            <span class="s1">AnimationUtils.loadAnimation(</span><span class="s0">this, </span><span class="s1">R.anim.translate)</span><span class="s0">,</span>
+        <span class="s1">)</span>
+
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span>
+
+        <span class="s1">btn.setOnClickListener {</span>
+            <span class="s0">var </span><span class="s1">rando = </span><span class="s2">0</span>
+            <span class="s1">rando = Random.nextInt(</span><span class="s2">14</span><span class="s1">)</span>
+            <span class="s1">img.startAnimation(y[rando])</span>
+        <span class="s1">}</span>
+        <span class="s1">y[</span><span class="s2">0</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">1</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">2</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">3</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">4</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">5</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">6</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">7</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">8</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">9</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">10</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">11</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">12</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+        <span class="s1">y[</span><span class="s2">13</span><span class="s1">].setAnimationListener(</span><span class="s0">object</span><span class="s1">:Animation.AnimationListener {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationStart(animation: Animation?) {</span>
+                <span class="s1">btn.visibility=View.INVISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationEnd(animation: Animation?) {</span>
+                <span class="s1">btn.visibility= View.VISIBLE</span>
+            <span class="s1">}</span>
+
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onAnimationRepeat(animation: Animation?) {</span>
+
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>
